@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sidebar and Feed</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+    }
+
+    .sidebar {
+        width: 15%;
+        background-color: #f2f2f2;
+        padding: 20px;
+        height: 100vh;
+        position: fixed;
+        overflow-y: auto;
+
+
+        & h2 {
+            margin-bottom: 15px;
+        }
+
+        & ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        & li {
+            margin-bottom: 10px;
+        }
+
+        & a {
+            text-decoration: none;
+            color: #333;
+        }
+    }
+
+    .feed {
+        margin-left: 18%;
+        width: 70%;
+        padding: 20px;
+
+        & h2 {
+            margin-bottom: 15px;
+        }
+    }
+
+
+
+    .post {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        & img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .interactions {
+            margin-top: 10px;
+        }
+
+        .like-btn,
+        .comment-btn {
+            padding: 5px 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .like-count,
+        .comment-count {
+            color: #555;
+            margin-left: 10px;
+        }
+
+    }
+
+
+
+    .post-content {
+        flex: 1;
+
+        & h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        & p {
+            margin-top: 5px;
+            color: #555;
+        }
+    }
+</style>
+
+<body>
+    <div class="sidebar">
+        <h2>Sidebar</h2>
+        <ul>
+            <li><a href="#">Friend List</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Messages</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="feed">
+        <h2>Feed</h2>
+       
+        <div class="post">
+            <img src="./profile.avif" alt="Profile Picture">
+            <div class="post-content">
+                <h3>John Doe</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nam totam veritatis neque magni
+                    quidem ex! Commodi amet ad unde quasi qui veritatis ipsum! Sequi debitis nemo quasi ea at!
+                </p>
+
+                <div class="interactions">
+                    <button class="like-btn">Like</button>
+                    <span class="like-count">0 Likes</span>
+                    <button class="comment-btn">Comment</button>
+                    <span class="comment-count">0 Comments</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="post">
+            <img src="./profile.avif" alt="Profile Picture">
+            <div class="post-content">
+                <h3>John Doe</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nam totam veritatis neque magni
+                    quidem ex! Commodi amet ad unde quasi qui veritatis ipsum! Sequi debitis nemo quasi ea at!</p>
+            </div>
+        </div>
+
+
+        <div class="post">
+            <img src="./profile.avif" alt="Profile Picture">
+            <div class="post-content">
+                <h3>John Doe</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nam totam veritatis neque magni
+                    quidem ex! Commodi amet ad unde quasi qui veritatis ipsum! Sequi debitis nemo quasi ea at!</p>
+            </div>
+        </div>
+
+        <div class="post">
+            <img src="./profile.avif" alt="Profile Picture">
+            <div class="post-content">
+                <h3>John Doe</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nam totam veritatis neque magni
+                    quidem ex! Commodi amet ad unde quasi qui veritatis ipsum! Sequi debitis nemo quasi ea at!</p>
+            </div>
+        </div>
+
+
+        <div class="post">
+            <img src="./profile.avif" alt="Profile Picture">
+            <div class="post-content">
+                <h3>John Doe</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nam totam veritatis neque magni
+                    quidem ex! Commodi amet ad unde quasi qui veritatis ipsum! Sequi debitis nemo quasi ea at!</p>
+            </div>
+        </div>
+
+
+        <div class="post">
+            <img src="./profile.avif" alt="Profile Picture">
+            <div class="post-content">
+                <h3>John Doe</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nam totam veritatis neque magni
+                    quidem ex! Commodi amet ad unde quasi qui veritatis ipsum! Sequi debitis nemo quasi ea at!</p>
+            </div>
+        </div>
+
+
+        <div class="post">
+            <img src="./profile.avif" alt="Profile Picture">
+            <div class="post-content">
+                <h3>John Doe</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nam totam veritatis neque magni
+                    quidem ex! Commodi amet ad unde quasi qui veritatis ipsum! Sequi debitis nemo quasi ea at!</p>
+            </div>
+        </div>
+
+
+        <div class="post">
+            <img src="./profile.avif" alt="Profile Picture">
+            <div class="post-content">
+                <h3>John Doe</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nam totam veritatis neque magni
+                    quidem ex! Commodi amet ad unde quasi qui veritatis ipsum! Sequi debitis nemo quasi ea at!</p>
+            </div>
+        </div>
+        <!-- More posts go here... -->
+    </div>
+</body>
+
+</html>
