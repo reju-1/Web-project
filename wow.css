@@ -1,0 +1,84 @@
+body {
+    style="background-color:#FFFDD0;">Lorem ipsum
+}
+
+
+.main_div {
+    display: flex;
+
+}
+
+.left_div {
+    height: 950px;
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin-left: 300px;
+    margin-top: 1px;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 300px;
+}
+
+
+
+
+
+.right_div {
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-left: 300px;
+    margin-top: 170px;
+    border-radius: 5px;
+}
+.img {
+    border-radius: 50%;
+}
+
+.upper{
+    text-align: center;
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+.btn {
+    background-color: rgb(170, 179, 189); 
+    border: none; 
+    color: white; 
+    padding: 6px 8px; 
+    font-size: 16px; 
+    cursor:pointer; 
+  }
+  .btns{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+  
+
+
+
+
+
+
+.label20{
+    color: #ff9900;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
