@@ -1,0 +1,223 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.nav {
+    margin-bottom: 20px;
+    padding: 5px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+
+    #explore {
+        background-color: #FF6C22;
+        border-radius: 5px;
+        margin-right: 5px;
+    }
+
+    & ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+
+    }
+
+    & li {
+        float: left;
+    }
+
+    & li a {
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        border-radius: 5px;
+
+    }
+
+    & li a:hover {
+        background-color: orange;
+    }
+
+    .search-container {
+        float: right;
+        margin-right: 5px;
+    }
+
+    & input[type=text] {
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 17px;
+        border: none;
+    }
+
+    & input[type=text]:focus {
+        outline: none;
+    }
+
+}
+
+.root {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    width: 15%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    overflow-y: auto;
+
+    #logo {
+        color: #FF6C22;
+    }
+
+    & h2,
+    h1 {
+        margin-bottom: 15px;
+    }
+
+    & ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    & li {
+        margin-bottom: 10px;
+        background-color: gainsboro;
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+    & li a {
+        display: block;
+        color: black;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    & li:hover {
+        background-color: orange;
+    }
+}
+
+/* Previous CSS styles remain unchanged */
+
+.sidebar-right {
+    width: 20%;
+    background-color: #f2f2f2;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    & h2 {
+        margin-bottom: 15px;
+    }
+
+}
+
+
+.friends-list {
+    list-style-type: none;
+    padding: 0;
+
+    & li {
+        height: 15px;
+        background-color: gainsboro;
+    }
+}
+
+.friend {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    & img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+}
+
+.friend-name {
+    font-size: 16px;
+}
+
+
+.feed {
+    position: relative;
+    margin-left: 18%;
+    width: 56.3%;
+    padding: 20px;
+
+    & h2 {
+        margin-bottom: 15px;
+    }
+}
+
+
+
+.post {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: aquamarine;
+
+
+    & img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+
+    .interactions {
+        margin-top: 10px;
+    }
+
+    .like-btn,
+    .comment-btn {
+        padding: 5px 10px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .like-count,
+    .comment-count {
+        color: #555;
+        margin-left: 10px;
+    }
+
+}
+
+
+
+.post-content {
+    flex: 1;
+
+    & h3 {
+        margin: 0;
+        font-size: 18px;
+    }
+
+    & p {
+        margin-top: 5px;
+        color: #555;
+    }
+}
