@@ -1,81 +1,88 @@
-*{
-        margin: 0;
-        padding: 0;
-       
-    }
-    
-body{
-      background-image: url(uiupic.jpg);
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-.f1{
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(../assets/images/uiupic.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.f1 {
     height: auto;
 }
 
-.orange{
+.orange {
     color: rgb(252, 134, 16);
     font-size: 600%;
     margin-top: 5%;
     margin-left: 10%;
 }
-.the{
+
+.the {
     color: blanchedalmond;
     margin-left: 15%;
 }
-.container{
+
+.container {
     background: transparent;
     width: 650px;
     padding: 25px;
     margin-top: 1%;
-    margin-left: 2.5%;  
+    margin-left: 2.5%;
 }
-.input-name{
+
+.input-name {
     width: 90%;
     position: relative;
     margin: 20px;
 }
-.lock{
+
+.lock {
     padding: 8px 11px;
 }
-.text-name{
+
+.text-name {
     width: 90%;
     padding: 8px 0 8px 40px;
     border-radius: 10px;
 }
-.input-name i{
+
+.input-name i {
     position: absolute;
     font-size: 18px;
     color: blue;
     border-right: 1px solid #cccccc;
 }
-.button{
+
+.button {
     background-color: rgb(252, 134, 16);
     color: white;
     height: 30px;
     line-height: 30px;
     width: 97%;
-    border:none;
+    border: none;
     outline: none;
     border-radius: 10px;
-   
+
 }
-.text{
+
+.text {
     display: flex;
 }
-.p1{
+
+.p1 {
     padding-left: 4%;
     color: whitesmoke;
-    
+
 }
-.p2{
+
+.p2 {
     padding-left: 40%;
     color: whitesmoke;
 }
-.p3{
+
+.p3 {
     color: whitesmoke;
 }
-
-
-/**/ sign up
-
