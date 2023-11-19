@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+   
+}
+
+body{
+    background-image: url(../../assets/images/uiupic.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+}
+
+.f1{
+    text-align: center;
+    margin-top: 3%;
+}
+.c1{
+    color:rgb(252, 134, 16);
+}
+.f2{
+    text-align: center;
+    margin-top: 3%;
+}
+.c2{
+    color: brown;
+}
+.input-name{
+    width: 90%;
+    position: relative;
+    margin: 20px;
+    margin-left: 35%;
+   
+}
+.text-name{
+    width: 31%;
+    padding: 8px 0 8px 40px;
+    border-radius: 10px;
+    
+    
+}
+.button{
+    width: 34.3%;
+    padding: 8px 0 8px 40px;
+    border-radius: 10px;
+    background-color: rgb(252, 134, 16);
+    color: white;
+    
+}
+.f3{
+    text-align: cener;
+    margin-top: 3%;
+    display: flex;
+    
+
+}
+
+.c3{ color: brown;
+    margin-left: 35%;
+}
+.p3{
+    color: brown;
+    margin-left: 14%;
+    height: 5%;
+}
