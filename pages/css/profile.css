@@ -1,5 +1,5 @@
 body {
-    style="background-color:#FFFDD0;">Lorem ipsum
+    background-color: #FFFDD0;
 }
 
 
@@ -41,42 +41,45 @@ body {
     margin-top: 170px;
     border-radius: 5px;
 }
+
 .img {
     border-radius: 50%;
 }
 
-.upper{
+.upper {
     text-align: center;
 }
 
-.btns{
+.btns {
     display: flex;
     justify-content: center;
     gap: 5px;
     margin-bottom: 20px;
 }
+
 .btn {
-    background-color: rgb(170, 179, 189); 
-    border: none; 
-    color: white; 
-    padding: 6px 8px; 
-    font-size: 16px; 
-    cursor:pointer; 
-  }
-  .btns{
+    background-color: rgb(170, 179, 189);
+    border: none;
+    color: white;
+    padding: 6px 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btns {
     display: flex;
     justify-content: center;
     gap: 5px;
     margin-bottom: 10px;
 }
-  
 
 
 
 
 
 
-.label20{
+
+.label20 {
     color: #ff9900;
     font-weight: bold;
     text-align: center;

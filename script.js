@@ -1,1 +1,0 @@
-<script id ="dsq-count-scr" scr="//EXAMPLE.disqus.com/count.js" async></script>
