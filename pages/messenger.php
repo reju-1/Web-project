@@ -1,3 +1,27 @@
+<?php
+include './php/connection.php';
+
+// get the user Email from session variable 
+$emailID = "r@gmail.com";
+
+// Prepare and execute query to get names and Picture of friends based on user email
+$stmt = $conn->prepare("
+    SELECT CONCAT(u.firstName,' ',u.lastName) as name, picture
+    FROM friends f
+    INNER JOIN users u ON f.friend = u.email
+    WHERE f.userId = ?
+");
+$stmt->bind_param("s", $emailID);
+$stmt->execute();
+
+$friends_details = $stmt->get_result();
+
+$stmt->close();
+$conn->close();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,32 +38,30 @@
         </div>
 
         <div class="left-side">
-
-            <div class="friend">
-                <div class="picture">
-                    <img src="../assets/profiles/pic-1.jpg" alt="">
-                </div>
-                <div class="detals">
-                    <div class="head">
-                        <p class="name">Rejunay Ahmed</p>
-                        <p>10:50pm</p>
+            <?php
+            if ($friends_details->num_rows > 0) {
+                while ($row = $friends_details->fetch_assoc()) {
+                    ?>
+                    <div class="friend">
+                        <div class="picture">
+                            <img src="../assets/profiles/<?php echo $row['picture']; ?>" alt="">
+                        </div>
+                        <div class="detals">
+                            <div class="head">
+                                <p class="name">
+                                    <?php echo $row['name']; ?>
+                                </p>
+                                <p>10:50pm</p>
+                            </div>
+                            <p>Hi</p>
+                        </div>
                     </div>
-                    <p>Hi</p>
-                </div>
-            </div>
-
-            <div class="friend">
-                <div class="picture">
-                    <img src="../assets/profiles/pic-3.jpg" alt="">
-                </div>
-                <div class="detals">
-                    <div class="head">
-                        <p class="name">Hasib Mia</p>
-                        <p>9:50pm</p>
-                    </div>
-                    <p>Hi</p>
-                </div>
-            </div>
+                    <?php
+                }
+            } else {
+                echo "No matching users found";
+            }
+            ?>
 
         </div>
 
