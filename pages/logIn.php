@@ -19,7 +19,7 @@
     </div>
 
     <div class="container">
-        <form action="./home.html">
+        <form action="./home.php">
             <div class="input-name">
                 <i class="fa fa-user-o lock"></i>
                 <input type="text" placeholder="Username" class="text-name">
@@ -34,9 +34,9 @@
 
             </div>
             <div class="text">
-                <p class="p1"> <a href="./forget.html">Forget Password?</a></p>
+                <p class="p1"> <a href="./forget.php">Forget Password?</a></p>
                 <p class="p2">Haven't an account?</p>
-                <a href="./signUp.html" class="p3">Sign up</a>
+                <a href="./signUp.php" class="p3">Sign up</a>
             </div>
         </form>
     </div>

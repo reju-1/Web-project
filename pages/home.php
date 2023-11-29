@@ -15,9 +15,9 @@
             <h1 id="logo">Orange</h1>
             <ul>
                 <li style="background-color: rgb(107, 138, 170);"><a href="#">Home</a></li>
-                <li><a href="./profile.html">Profile</a></li>
-                <li><a href="./event/calendar.html">Event</a></li>
-                <li><a href="./messenger.html">Messages</a></li>
+                <li><a href="./profile.php">Profile</a></li>
+                <li><a href="./event/calendar.php">Event</a></li>
+                <li><a href="./messenger.php">Messages</a></li>
                 <li><a href="#">Settings</a></li>
             </ul>
         </div>

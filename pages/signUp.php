@@ -15,7 +15,7 @@
     <div class="container">
         <h2>Join The ORANGE</h2>
         <div class="form-container">
-            <form action="./logIn.html">
+            <form action="./logIn.php">
                 <div class="input-name">
                     <i class="fa fa-user-o lock"></i>
                     <input type="text" placeholder="First Name" class="name">

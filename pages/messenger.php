@@ -1,5 +1,5 @@
 <?php
-include './php/connection.php';
+include './php_utility/connection.php';
 
 // get the user Email from session variable 
 $emailID = "r@gmail.com";

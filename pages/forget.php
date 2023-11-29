@@ -26,7 +26,7 @@
 
     <div class="f3">
         <h3 class="c3">Do you have an account?</h3>
-        <a href="./logIn.html" class="p3">Sign up</a>
+        <a href="./logIn.php" class="p3">Sign up</a>
     </div>
    
 </body>
