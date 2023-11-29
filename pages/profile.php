@@ -50,7 +50,7 @@
                     I left my heart in the send
                     <br>(add image hare)
                 </p>
-                <img src="#" alt="Trulli" width="30" height="70">
+                <img src="./../assets/profiles/pic-1.jpg" alt="Trulli" width="30" height="70">
 
                 <button class="btn"><i class="fa fa-like"></i> Like</button> 29 like
                 <button class="btn"><i class="fa fa-comment"></i> Comment</button>5 comment
@@ -74,7 +74,7 @@
         <div class="right_div">
             <div class="upper">
 
-                <img src="img_avatar.png" alt="Avatar" style="width:200px">
+                <img src="./../assets/profiles/pic-1.jpg" alt="Avatar" style="width:200px">
                 <br>(add same image here)
 
 
