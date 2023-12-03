@@ -2,7 +2,7 @@
 include './php_utility/connection.php';
 
 // get the user Email from session variable 
-$emailID = "r@gmail.com";
+$emailID = "r@g.c";
 
 // Prepare and execute query to get names and Picture of friends based on user email
 $stmt = $conn->prepare("
@@ -81,38 +81,6 @@ $conn->close();
 
 </body>
 
-<script>
-    let messageCounter = 0;
-
-    function sendMessage() {
-        var messageInput = document.getElementById('messageInput');
-        var message = messageInput.value.trim();
-
-        if (message !== '') {
-            var chatContainer = document.querySelector('.chat-container');
-            var messageElement = document.createElement('div');
-            messageElement.classList.add('message');
-
-            // Alternating messages between left and right
-            if (messageCounter % 2 === 0) {
-                messageElement.classList.add('right');
-            }
-
-            messageElement.textContent = message;
-            chatContainer.appendChild(messageElement); // Append new message
-            messageInput.value = ''; // Clear input field after sending message
-
-            messageCounter++;
-        }
-    }
-
-    messageInput.addEventListener('keydown', function (event) {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            sendMessage();
-        }
-    });
-
-</script>
+<script src="./js/messenger.js"></script>
 
 </html>
