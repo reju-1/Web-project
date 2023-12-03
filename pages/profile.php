@@ -1,3 +1,26 @@
+<?php
+include './php_utility/connection.php';
+
+// get the user Email from session variable 
+$emailID = "r@gmail.com";
+
+// Prepare and execute query to get names and Picture of friends based on user email
+$stmt = $conn->prepare("SELECT CONCAT(u.firstName, ' ', u.lastName) AS name, u.picture, p.content, p.likeCount, p.id
+                             FROM users u
+                             INNER JOIN posts p
+                             ON u.email = p.email
+                             WHERE u.email = ?");
+$stmt->bind_param("s", $emailID);
+$stmt->execute();
+
+$post = $stmt->get_result();
+$profileFeed = $post->fetch_assoc();
+print_r($profileFeed);
+
+$stmt->close();
+$conn->close();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
