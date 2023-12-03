@@ -1,3 +1,39 @@
+<?php
+include './php_utility/connection.php';
+
+$emailID = 'r@gmail.com';
+
+$friendQuary = "SELECT CONCAT(u.firstName,' ',u.lastName) as name, u.picture, u.email
+                    FROM `friends` f
+                    INNER JOIN `users` u
+                    ON f.friend = u.email
+                    WHERE f.userId = ?";
+$postQuary = "SELECT CONCAT(u.firstName, ' ', u.lastName) AS name, u.picture, p.content, p.likeCount, p.id
+                    FROM users u
+                    INNER JOIN posts p
+                    ON u.email = p.email";
+
+// geting all the posts
+$postStmt = $conn->prepare($postQuary);
+$postStmt->execute();
+
+$post = $postStmt->get_result();
+$postStmt->close();
+
+// geting all the friends
+$friendStmt = $conn->prepare($friendQuary);
+$friendStmt->bind_param("s", $emailID);
+$friendStmt->execute();
+
+$friends = $friendStmt->get_result();
+$friendStmt->close();
+
+$conn->close();
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +50,7 @@
         <div class="sidebar">
             <h1 id="logo">Orange</h1>
             <ul>
-                <li style="background-color: rgb(107, 138, 170);"><a href="#">Home</a></li>
+                <li style="background-color: rgb(107, 138, 170);"><a href="./home.php">Home</a></li>
                 <li><a href="./profile.php">Profile</a></li>
                 <li><a href="./event/calendar.php">Event</a></li>
                 <li><a href="./messenger.php">Messages</a></li>
@@ -40,112 +76,51 @@
                 </ul>
             </div>
 
-            <div class="post">
-                <img src="../assets/images/profile.avif" alt="Profile Picture">
-                <div class="post-content">
-                    <h3>John Doe</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nam totam veritatis neque
-                        magni
-                        quidem ex! Commodi amet ad unde quasi qui veritatis ipsum! Sequi debitis nemo quasi ea at!
-                    </p>
+            <?php if ($post->num_rows > 0) {
+                while ($row = $post->fetch_assoc()) { ?>
+                    <div class="post">
+                        <img src="../assets/profiles/<?php echo $row['picture']; ?>" alt="">
 
-                    <div class="interactions">
-                        <button class="like-btn">Like</button>
-                        <span class="like-count">0 Likes</span>
-                        <button class="comment-btn">Comment</button>
-                        <span class="comment-count">0 Comments</span>
+                        <div class="post-content">
+                            <h3>
+                                <?php echo $row['name']; ?>
+                            </h3>
+                            <p>
+                                <?php echo $row['content']; ?>
+                            </p>
+
+                            <div class="interactions">
+                                <button class="like-btn" id="<?php echo $row['id']; ?>">Like</button>
+                                <span class="like-count">
+                                    <?php echo $row['likeCount'] . ' Likes '; ?>
+                                </span>
+                                <button class="comment-btn">Comment</button>
+                                <span class="comment-count">0 Comments</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="post">
-                <img src="../assets/images/profile.avif" alt="Profile Picture">
-                <div class="post-content">
-                    <h3>John Doe</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nam totam veritatis neque
-                        magni
-                        quidem ex! Commodi amet ad unde quasi qui veritatis ipsum! Sequi debitis nemo quasi ea at!
-                    </p>
-
-                    <div class="interactions">
-                        <button class="like-btn">Like</button>
-                        <span class="like-count">0 Likes</span>
-                        <button class="comment-btn">Comment</button>
-                        <span class="comment-count">0 Comments</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="post">
-                <img src="../assets/images/profile.avif" alt="Profile Picture">
-                <div class="post-content">
-                    <h3>John Doe</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nam totam veritatis neque
-                        magni
-                        quidem ex! Commodi amet ad unde quasi qui veritatis ipsum! Sequi debitis nemo quasi ea at!
-                    </p>
-
-                    <div class="interactions">
-                        <button class="like-btn">Like</button>
-                        <span class="like-count">0 Likes</span>
-                        <button class="comment-btn">Comment</button>
-                        <span class="comment-count">0 Comments</span>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="post">
-                <img src="../assets/images/profile.avif" alt="Profile Picture">
-                <div class="post-content">
-                    <h3>John Doe</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nam totam veritatis neque
-                        magni
-                        quidem ex! Commodi amet ad unde quasi qui veritatis ipsum! Sequi debitis nemo quasi ea at!
-                    </p>
-
-                    <div class="interactions">
-                        <button class="like-btn">Like</button>
-                        <span class="like-count">0 Likes</span>
-                        <button class="comment-btn">Comment</button>
-                        <span class="comment-count">0 Comments</span>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="post">
-                <img src="../assets/images/profile.avif" alt="Profile Picture">
-                <div class="post-content">
-                    <h3>John Doe</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nam totam veritatis neque
-                        magni
-                        quidem ex! Commodi amet ad unde quasi qui veritatis ipsum! Sequi debitis nemo quasi ea at!
-                    </p>
-
-                    <div class="interactions">
-                        <button class="like-btn">Like</button>
-                        <span class="like-count">0 Likes</span>
-                        <button class="comment-btn">Comment</button>
-                        <span class="comment-count">0 Comments</span>
-                    </div>
-                </div>
-            </div>
-
+                <?php }
+            } else {
+                echo "no post found";
+            } ?>
         </div>
 
         <div class="sidebar sidebar-right">
             <h2>Friends</h2>
             <ul class="friends-list">
-                <li class="friend">
-                    <img src="../assets/images/profile.avif" alt="Friend 1">
-                    <span class="friend-name">Friend 1</span>
-                </li>
 
-                <li class="friend">
-                    <img src="../assets/images/profile.avif" alt="Friend 2">
-                    <span class="friend-name">Friend 2</span>
-                </li>
+                <?php if ($friends->num_rows > 0) {
+                    while ($row = $friends->fetch_assoc()) { ?>
+                        <li class="friend">
+
+                            <img src="../assets/profiles/<?php echo $row['picture'] ?>" alt="Friend 1">
+                            <span class="friend-name">
+                                <?php echo $row['name'] ?>
+                            </span>
+                        </li>
+
+                    <?php }
+                } ?>
             </ul>
         </div>
 
