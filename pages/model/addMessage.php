@@ -5,19 +5,18 @@ include '../php_utility/connection.php';
 // Initialize response array
 $response = array();
 
-$msg = mysqli_real_escape_string($conn, $_POST['msg']);
-$sender = mysqli_real_escape_string($conn, $_POST['sender']);
-$receiver = mysqli_real_escape_string($conn, $_POST['receiver']);
+// Retriveing the Json 
+$json = file_get_contents('php://input');
+// converting to associative arrry 
+$data = json_decode($json, true);
 
 
-if (isset($_POST['msg'], $_POST['sender'], $_POST['receiver'])) {
+if ($data != null) {
 
 
-    $msg = mysqli_real_escape_string($conn, $_POST['msg']);
-    $sender = mysqli_real_escape_string($conn, $_POST['sender']);
-    $receiver = mysqli_real_escape_string($conn, $_POST['receiver']);
-
-    echo $msg . ' ' . $sender;
+    $msg = $data['msg'];
+    $sender = $data['sender'];
+    $receiver = $data['receiver'];
 
     // Create the SQL query using prepared statements
     $sql = "INSERT INTO `messages` (`sender`, `receiver`, `msg`) VALUES (?,?,?)";
@@ -40,7 +39,7 @@ if (isset($_POST['msg'], $_POST['sender'], $_POST['receiver'])) {
 
 } else {
     $response['status'] = 'error';
-    $response['message'] = 'Missing required parameters';
+    $response['message'] = 'Invalid JSON';
 }
 
 $conn->close();
