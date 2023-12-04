@@ -1,6 +1,4 @@
 
-let messageCounter = 0;
-
 messageInput.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
         event.preventDefault();
@@ -16,17 +14,11 @@ function sendMessage() {
         var chatContainer = document.querySelector('.chat-container');
         var messageElement = document.createElement('div');
         messageElement.classList.add('message');
-
-        // Alternating messages between left and right
-        if (messageCounter % 2 === 0) {
-            messageElement.classList.add('right');
-        }
+        messageElement.classList.add('right');
 
         messageElement.textContent = message;
         chatContainer.appendChild(messageElement); // Append new message
         messageInput.value = ''; // Clear input field after sending message
-
-        messageCounter++;
 
         //get current chat person and user email from session
         const msgObj = {
