@@ -28,26 +28,30 @@ function sendMessage() {
 
         messageCounter++;
 
+        //get current chat person and user email from session
+        const msgObj = {
+            msg: message,
+            sender: 'r@g.c',
+            receiver: 'h@g.c'
+        };
+
+        postToServer(msgObj);
 
     }
 }
 
 
-async function postToServer() {
+async function postToServer(msgObj) {
 
     const apiUrl = 'http://localhost/Web-project/pages/model/addMessage.php'
     try {
-        const m = {
-            msg: "0000",
-            sender: 'r@g.c',
-            receiver: 'h@g.c'
-        };
+
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(m)
+            body: JSON.stringify(msgObj)
 
         });
 
@@ -63,4 +67,33 @@ async function postToServer() {
     }
 };
 
-postToServer();
+setInterval(async () => {
+
+    const apiUrl = 'http://localhost/Web-project/pages/model/getMessages.php';
+    try {
+
+        const msgObj = {
+            sender: 'r@g.c',
+            receiver: 'h@g.c'
+        };
+
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(msgObj)
+
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok.');
+        }
+
+        const data = await response.json();
+        console.log('API Response: ', data);
+
+    } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+    }
+}, 5000);
