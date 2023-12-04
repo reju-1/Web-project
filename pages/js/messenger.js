@@ -91,9 +91,39 @@ setInterval(async () => {
         }
 
         const data = await response.json();
-        console.log('API Response: ', data);
+        addToDOM(data);
 
     } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
     }
-}, 5000);
+}, 2000);
+
+function addToDOM(apiData) {
+
+    if (apiData.rows != 'empty') {
+
+        const { messages } = apiData;
+
+        let chatContainer = document.querySelector('.chat-container');
+        chatContainer.innerHTML = '';
+
+        messages.map((message) => {
+
+            const { id, sender, receiver, msg } = message;
+
+            let messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+
+            // Alternating messages between left and right
+            if (sender === "r@g.c") {
+                messageElement.classList.add('right');
+            }
+
+            messageElement.textContent = msg;
+            chatContainer.appendChild(messageElement);
+
+
+        })
+
+    }
+}
