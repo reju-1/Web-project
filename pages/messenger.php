@@ -6,7 +6,7 @@ $emailID = "r@g.c";
 
 // Prepare and execute query to get names and Picture of friends based on user email
 $stmt = $conn->prepare("
-    SELECT CONCAT(u.firstName,' ',u.lastName) as name, picture
+    SELECT CONCAT(u.firstName,' ',u.lastName) as name, picture, email
     FROM friends f
     INNER JOIN users u ON f.friend = u.email
     WHERE f.userId = ?
@@ -35,6 +35,16 @@ $conn->close();
 <body>
     <div class="root">
         <div class="side-nav">
+            <div class="sidebar">
+                <h1 id="logo">Orange</h1>
+                <ul>
+                    <li><a href="./home.php">Home</a></li>
+                    <li><a href="./profile.php">Profile</a></li>
+                    <li style="background-color: rgb(107, 138, 170);"><a href="./messenger.php">Messages</a></li>
+                    <li><a href="./event/calendar.php">Event</a></li>
+                    <li><a href="#">Log Out</a></li>
+                </ul>
+            </div>
         </div>
 
         <div class="left-side">
@@ -42,7 +52,7 @@ $conn->close();
             if ($friends_details->num_rows > 0) {
                 while ($row = $friends_details->fetch_assoc()) {
                     ?>
-                    <div class="friend">
+                    <div class="friend" id="<?php echo $row['email']; ?>">
                         <div class="picture">
                             <img src="../assets/profiles/<?php echo $row['picture']; ?>" alt="">
                         </div>

@@ -1,3 +1,28 @@
+let userEmail = "r@g.c"
+let currentlyChating = "";
+let previoulyChating = "";
+
+
+const selectingFriends = document.querySelectorAll('.friend');
+
+selectingFriends.forEach(friend => {
+    friend.addEventListener('click', function () {
+
+        currentlyChating = this.id;
+        document.querySelector('.chat-container').innerHTML = '';
+
+        if (previoulyChating != "") {
+            document.getElementById(previoulyChating).classList.remove('clicked');
+        }
+        previoulyChating = currentlyChating;
+
+
+
+        document.getElementById(currentlyChating).classList.add('clicked');
+
+    });
+});
+
 
 messageInput.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
@@ -10,7 +35,7 @@ function sendMessage() {
     var messageInput = document.getElementById('messageInput');
     var message = messageInput.value.trim();
 
-    if (message !== '') {
+    if (message !== '' && currentlyChating !== "") {
         var chatContainer = document.querySelector('.chat-container');
         var messageElement = document.createElement('div');
         messageElement.classList.add('message');
@@ -23,8 +48,8 @@ function sendMessage() {
         //get current chat person and user email from session
         const msgObj = {
             msg: message,
-            sender: 'r@g.c',
-            receiver: 'h@g.c'
+            sender: userEmail,
+            receiver: currentlyChating
         };
 
         postToServer(msgObj);
@@ -61,34 +86,38 @@ async function postToServer(msgObj) {
 
 setInterval(async () => {
 
-    const apiUrl = 'http://localhost/Web-project/pages/model/getMessages.php';
-    try {
+    if (currentlyChating != "") {
 
-        const msgObj = {
-            sender: 'r@g.c',
-            receiver: 'h@g.c'
-        };
+        const apiUrl = 'http://localhost/Web-project/pages/model/getMessages.php';
+        try {
 
-        const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(msgObj)
+            const msgObj = {
+                sender: userEmail,
+                receiver: currentlyChating
+            };
 
-        });
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(msgObj)
 
-        if (!response.ok) {
-            throw new Error('Network response was not ok.');
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok.');
+            }
+
+            const data = await response.json();
+            addToDOM(data);
+
+        } catch (error) {
+            console.error('There was a problem with the fetch operation:', error);
         }
-
-        const data = await response.json();
-        addToDOM(data);
-
-    } catch (error) {
-        console.error('There was a problem with the fetch operation:', error);
     }
-}, 2000);
+
+}, 500);
 
 function addToDOM(apiData) {
 
@@ -107,7 +136,7 @@ function addToDOM(apiData) {
             messageElement.classList.add('message');
 
             // Alternating messages between left and right
-            if (sender === "r@g.c") {
+            if (sender === userEmail) {
                 messageElement.classList.add('right');
             }
 

@@ -12,9 +12,61 @@
     background-color: black;
 }
 
+.clicked {
+    background-color: #6b8aaa !important;
+}
+
 .side-nav {
     background-color: #f2f2f2;
-    flex: 5%;
+    flex: 12%;
+
+    .sidebar {
+        margin-top: 5px;
+        width: 100%;
+        background-color: #f2f2f2;
+        padding: 2px;
+        height: 100vh;
+        position: fixed;
+        overflow-y: auto;
+
+        #logo {
+            color: #FF6C22;
+            margin-left: 10px;
+        }
+
+        & h2,
+        h1 {
+            margin-bottom: 15px;
+        }
+
+        & ul {
+            margin-left: 5px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        & li {
+            width: 120px;
+            margin-bottom: 10px;
+            background-color: gainsboro;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        & li a {
+            display: block;
+            color: black;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.15rem;
+
+        }
+
+        & li:hover {
+            background-color: orange;
+        }
+    }
 }
 
 

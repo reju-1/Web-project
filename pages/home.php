@@ -1,7 +1,7 @@
 <?php
 include './php_utility/connection.php';
 
-$emailID = 'r@gmail.com';
+$emailID = 'r@g.c';
 
 $friendQuary = "SELECT CONCAT(u.firstName,' ',u.lastName) as name, u.picture, u.email
                     FROM `friends` f
@@ -52,9 +52,9 @@ $conn->close();
             <ul>
                 <li style="background-color: rgb(107, 138, 170);"><a href="./home.php">Home</a></li>
                 <li><a href="./profile.php">Profile</a></li>
-                <li><a href="./event/calendar.php">Event</a></li>
                 <li><a href="./messenger.php">Messages</a></li>
-                <li><a href="#">Settings</a></li>
+                <li><a href="./event/calendar.php">Event</a></li>
+                <li><a href="#">Log Out</a></li>
             </ul>
         </div>
 
