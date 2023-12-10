@@ -76,6 +76,13 @@ $conn->close();
                 </ul>
             </div>
 
+            <div class="post-container">
+                <form id="postForm">
+                    <textarea id="postData" placeholder="Enter your post here..."></textarea>
+                    <button type="submit">Post</button>
+                </form>
+            </div>
+
             <?php if ($post->num_rows > 0) {
                 while ($row = $post->fetch_assoc()) { ?>
                     <div class="post">
@@ -126,5 +133,7 @@ $conn->close();
 
     </div>
 </body>
+<script src="./js/home.js"></script>
+
 
 </html>

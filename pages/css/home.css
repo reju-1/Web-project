@@ -221,3 +221,23 @@ body {
         color: #555;
     }
 }
+
+.post-container {
+    padding: 10px;
+    & textarea {
+        width: 97%;
+        height: 400%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    & button {
+        padding: 10px 20px;
+        background-color: #3498db;
+
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+}
