@@ -1,8 +1,8 @@
 <?php
 include './php_utility/connection.php';
 
-// get the user Email from session variable 
-$emailID = "r@g.c";
+session_start();
+$emailID = $_SESSION['email'];
 
 // Prepare and execute query to get names and Picture of friends based on user email
 $stmt = $conn->prepare("
@@ -42,7 +42,7 @@ $conn->close();
                     <li><a href="./profile.php">Profile</a></li>
                     <li style="background-color: rgb(107, 138, 170);"><a href="./messenger.php">Messages</a></li>
                     <li><a href="./event/calendar.php">Event</a></li>
-                    <li><a href="#">Log Out</a></li>
+                    <li><a href="./php_utility/logout.php">Log Out</a></li>
                 </ul>
             </div>
         </div>

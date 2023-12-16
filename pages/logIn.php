@@ -1,3 +1,36 @@
+<?php
+include './php_utility/connection.php';
+session_start();
+
+if (isset($_POST['submit'])) {
+
+    $username = $_POST['email'];
+    $pass = $_POST['password'];
+
+    $stmt = $conn->prepare("SELECT email, password FROM users WHERE email = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows == 1) {
+        $user = $result->fetch_assoc();
+        $stmt->close();
+        $conn->close();
+
+        if ($pass == $user['password']) {
+            $_SESSION['email'] = $user['email'];
+            header("Location: ./home.php");
+            exit();
+        }
+    }
+
+    // Invalid credentials, set a flag to indicate unsuccessful login
+    $_SESSION['login_error'] = true;
+    header("Location: ./logIn.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,18 +52,27 @@
     </div>
 
     <div class="container">
-        <form action="./home.php">
+        <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
             <div class="input-name">
                 <i class="fa fa-user-o lock"></i>
-                <input type="text" placeholder="Username" class="text-name">
+                <input name="email" type="email" placeholder="Username" class="text-name">
             </div>
 
             <div class="input-name">
                 <i class="fa fa-unlock-alt lock"></i>
-                <input type="text" placeholder="Password" class="text-name">
+                <input name="password" type="password" placeholder="Password" class="text-name">
+                <?php
+
+                // Check if login error flag is set
+                if (isset($_SESSION['login_error']) && $_SESSION['login_error']) {
+                    echo '<p style="color: red; font-size:1.2rem; margin-top:10px; margin-bottom:0px;"> ** Invalid Information **</p>';
+                    // Unset the login error flag after displaying the message
+                    unset($_SESSION['login_error']);
+                }
+                ?>
             </div>
             <div class="input-name">
-                <input type="Submit" class="button" value="Log In">
+                <input name="submit" type="Submit" class="button" value="Log In">
 
             </div>
             <div class="text">

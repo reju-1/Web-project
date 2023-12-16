@@ -1,8 +1,8 @@
 <?php
 include './php_utility/connection.php';
 
-// get the user Email from session variable 
-$emailID = "r@gmail.com";
+session_start();
+$emailID = $_SESSION['email'];
 
 // Prepare and execute query to get names and Picture of friends based on user email
 $stmt = $conn->prepare("SELECT CONCAT(u.firstName, ' ', u.lastName) AS name, u.picture, p.content, p.likeCount, p.id

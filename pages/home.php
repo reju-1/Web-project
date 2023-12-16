@@ -1,7 +1,8 @@
 <?php
 include './php_utility/connection.php';
 
-$emailID = 'r@g.c';
+session_start();
+$emailID = $_SESSION['email'];
 
 $friendQuary = "SELECT CONCAT(u.firstName,' ',u.lastName) as name, u.picture, u.email
                     FROM `friends` f
@@ -54,7 +55,7 @@ $conn->close();
                 <li><a href="./profile.php">Profile</a></li>
                 <li><a href="./messenger.php">Messages</a></li>
                 <li><a href="./event/calendar.php">Event</a></li>
-                <li><a href="#">Log Out</a></li>
+                <li><a href="./php_utility/logout.php">Log Out</a></li>
             </ul>
         </div>
 
