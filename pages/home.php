@@ -2,6 +2,11 @@
 include './php_utility/connection.php';
 
 session_start();
+if (!isset($_SESSION['logged_in'])) {
+    header("Location: ./logIn.php");
+    exit();
+}
+
 $emailID = $_SESSION['email'];
 
 $friendQuary = "SELECT CONCAT(u.firstName,' ',u.lastName) as name, u.picture, u.email
@@ -64,8 +69,7 @@ $conn->close();
             <div class="nav">
                 <ul>
                     <li id="explore"><a href="#explore">Explore</a></li>
-                    <li><a href="#club">Club</a></li>
-                    <li><a href="#forum">Forum</a></li>
+                    <li><a href="./club_foram.php">Club & Forum</a></li>
                     <li><a href="#research">Research</a></li>
 
                     <!-- Search bar within a separate container -->

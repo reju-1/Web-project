@@ -18,7 +18,10 @@ if (isset($_POST['submit'])) {
         $conn->close();
 
         if ($pass == $user['password']) {
+
             $_SESSION['email'] = $user['email'];
+            $_SESSION['logged_in'] = true;
+
             header("Location: ./home.php");
             exit();
         }

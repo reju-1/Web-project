@@ -2,6 +2,10 @@
 include './php_utility/connection.php';
 
 session_start();
+if (!isset($_SESSION['logged_in'])) {
+    header("Location: ./logIn.php");
+    exit();
+}
 $emailID = $_SESSION['email'];
 
 // Prepare and execute query to get names and Picture of friends based on user email
