@@ -1,87 +1,144 @@
-body {
-    background-color: #FFFDD0;
-}
-
-
-.main_div {
+.root {
+    font-family: Arial, sans-serif;
     display: flex;
-
+    margin: 0;
+    padding: 0;
 }
 
-.left_div {
-    height: 950px;
-    width: 550px;
+.sidebar {
+    width: 15%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    overflow-y: auto;
+
+    #logo {
+        color: #FF6C22;
+    }
+
+    & h2,
+    h1 {
+        margin-bottom: 15px;
+    }
+
+    & ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    & li {
+        margin-bottom: 10px;
+        background-color: gainsboro;
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+    & li a {
+        display: block;
+        color: black;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    & li:hover {
+        background-color: orange;
+    }
+}
+
+.feed-boi-root{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    margin-left: 300px;
-    margin-top: 1px;
+}
+.feed {
+    position: relative;
+    margin-left: 18%;
+    width: 56.3%;
+    padding: 20px;
+
+    & h2 {
+        margin-bottom: 15px;
+    }
+
+    .post {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: aquamarine;
+
+
+        & img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .interactions {
+            margin-top: 10px;
+        }
+
+        .like-btn,
+        .comment-btn {
+            padding: 5px 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .like-count,
+        .comment-count {
+            color: #555;
+            margin-left: 10px;
+        }
+
+    }
+
+
+
+    .post-content {
+        flex: 1;
+
+        & h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        & p {
+            margin-top: 5px;
+            color: #555;
+        }
+    }
+
+    .post-container {
+        padding: 10px;
+
+        & textarea {
+            width: 97%;
+            height: 400%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        & button {
+            padding: 10px 20px;
+            background-color: #3498db;
+
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+    }
 }
 
-.profile {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-    width: 300px;
-}
-
-
-
-
-
-.right_div {
-    height: 400px;
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    margin-left: 300px;
-    margin-top: 170px;
-    border-radius: 5px;
-}
-
-.img {
-    border-radius: 50%;
-}
-
-.upper {
-    text-align: center;
-}
-
-.btns {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    margin-bottom: 20px;
-}
-
-.btn {
-    background-color: rgb(170, 179, 189);
-    border: none;
-    color: white;
-    padding: 6px 8px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.btns {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    margin-bottom: 10px;
-}
-
-
-
-
-
-
-
-.label20 {
-    color: #ff9900;
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
+.bio-container {
+    & img {
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+    }
 }
