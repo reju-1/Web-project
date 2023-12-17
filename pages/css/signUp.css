@@ -125,3 +125,15 @@ body {
     border: none;
     outline: none;
 }
+
+#login-link {
+    color: white;
+    text-decoration: none;    
+    margin-top: 10px;
+}
+
+#x{
+    margin-top: 5px;
+    color: white;
+
+}

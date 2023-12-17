@@ -72,10 +72,21 @@ $conn->close();
                                 $name = $row['name'];
                                 $img = $row['picture'];
                                 ?>
-                                <h3>
-                                    <?php echo $name ?>
-                                </h3>
-                                <p>
+
+                                <div class="xx">
+                                    <h3>
+                                        <?php echo $name ?>
+                                    </h3>
+
+                                    <form action="./model/deletepost.php" method="POST" class="delete-form">
+                                        <input type="hidden" name="post_id" value="<?php echo $row['id']; ?>">
+                                        <button type="submit" class="delete-btn" name="delete_post">
+                                            Delete &#10006;
+                                        </button>
+                                    </form>
+                                </div>
+
+                                <p class='post-p-tag'>
                                     <?php echo $row['content']; ?>
                                 </p>
 
@@ -86,8 +97,9 @@ $conn->close();
                                     <span class="like-count">
                                         <?php echo $row['likeCount'] . ' Likes '; ?>
                                     </span>
-                                    <button class="comment-btn">Comment</button>
-                                    <span class="comment-count">0 Comments</span>
+
+                                    <!-- <button class="comment-btn">Comment</button>
+                                    <span class="comment-count">0 Comments</span> -->
                                 </div>
                             </div>
                         </div>

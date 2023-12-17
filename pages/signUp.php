@@ -18,41 +18,41 @@
             <form action="./logIn.php">
                 <div class="input-name">
                     <i class="fa fa-user-o lock"></i>
-                    <input type="text" placeholder="First Name" class="name">
+                    <input required type="text" placeholder="First Name" class="name">
                     <span>
                         <i class="fa fa-user-o lock"></i>
-                        <input type="text" placeholder="Last Name" class="name">
+                        <input required type="text" placeholder="Last Name" class="name">
                     </span>
                 </div>
                 <div class="input-name">
                     <i class="fa fa-envelope-o lock"></i>
-                    <input type="text" placeholder="Email address" class="data">
+                    <input required type="text" placeholder="Email address" class="data">
                     <span>
                         <i class="fa fa-phone"></i>
-                        <input type="text" placeholder="Phone number" class="data">
+                        <input required type="text" placeholder="Phone number" class="data">
                     </span>
                 </div>
 
                 <div class="input-name">
                     <i class="fa fa-unlock-alt lock"></i>
-                    <input type="text" placeholder="Enter the password" class="text-name">
+                    <input required type="text" placeholder="Enter the password" class="text-name">
                 </div>
 
                 <div class="input-name">
                     <i class="fa fa-unlock-alt lock"></i>
-                    <input type="text" placeholder="Enter the password again" class="text-name">
+                    <input required type="text" placeholder="Enter the password again" class="text-name">
                 </div>
 
                 <div class="input-name">
 
-                    <input type="radio" class="radio-button" name="r1">
+                    <input required type="radio" class="radio-button" name="r1">
                     <lebel style="margin-right: 30px;">Male</lebel>
-                    <input type="radio" class="radio-button" name="r1">
+                    <input required type="radio" class="radio-button" name="r1">
                     <lebel>Female</lebel>
                 </div>
                 <div class="input-name">
 
-                    <select class="country">
+                    <select required class="country">
 
                         <option>Select a Catagory</option>
                         <option>Teacher</option>
@@ -66,14 +66,14 @@
                 </div>
 
                 <div class="input-name">
-                    <input type="checkbox" class="check-button">
+                    <input required type="checkbox" class="check-button">
                     <label class="check">I accepet all the term and conditions</label>
                 </div>
 
                 <div class="input-name">
 
                     <input type="Submit" class="button" value="Register">
-
+                    <p id='x'><a href="./logIn.php" id="login-link">Have account? <u>Log In</u></a></p>
                 </div>
             </form>
         </div>

@@ -48,6 +48,19 @@ $conn->close();
     <title>Sidebar and Feed</title>
     <link rel="stylesheet" href="./css/home.css">
 </head>
+<style>
+    .like-btn {
+        background-color: #efefef;
+        /* Other button styles */
+
+        /* Hover effect */
+    }
+
+    .like-btn:hover {
+        background-color: orange;
+        /* Other hover styles */
+    }
+</style>
 
 <body>
 
@@ -90,7 +103,7 @@ $conn->close();
 
             <?php if ($post->num_rows > 0) {
                 while ($row = $post->fetch_assoc()) { ?>
-                    <div class="post">
+                    <div class="post" id="<?php echo $row['id'] ?>">
                         <img src="../assets/profiles/<?php echo $row['picture']; ?>" alt="">
 
                         <div class="post-content">
@@ -106,8 +119,8 @@ $conn->close();
                                 <span class="like-count">
                                     <?php echo $row['likeCount'] . ' Likes '; ?>
                                 </span>
-                                <button class="comment-btn">Comment</button>
-                                <span class="comment-count">0 Comments</span>
+                                <!-- <button class="comment-btn">Comment</button>
+                                <span class="comment-count">0 Comments</span> -->
                             </div>
                         </div>
                     </div>
@@ -140,5 +153,41 @@ $conn->close();
 </body>
 <script src="./js/home.js"></script>
 
+<script>
+    // JavaScript
+    document.addEventListener('DOMContentLoaded', function () {
+        const likeButtons = document.querySelectorAll('.like-btn');
+
+        likeButtons.forEach(function (button) {
+            let isLiked = false;
+            let likeCount = parseInt(button.nextElementSibling.textContent); // Get initial like count
+
+            button.addEventListener('click', function () {
+                if (!isLiked) {
+                    likeCount++;
+                    button.style.backgroundColor = '#3498db';
+                } else {
+                    likeCount--;
+                    button.style.backgroundColor = '#efefef';
+                }
+
+                isLiked = !isLiked;
+                button.nextElementSibling.textContent = likeCount + (likeCount === 1 ? ' Like' : ' Likes');
+            });
+
+            button.addEventListener('mouseover', function () {
+                if (!isLiked) {
+                    button.style.backgroundColor = 'orange';
+                }
+            });
+
+            button.addEventListener('mouseout', function () {
+                if (!isLiked) {
+                    button.style.backgroundColor = '#efefef';
+                }
+            });
+        });
+    });
+</script>
 
 </html>
